@@ -1,0 +1,10 @@
+- Elementary signal 
+    - uni step
+    - x(t) = 5cos2pi1000t
+    -
+- Convolution
+    - Using function 
+    - Iterative
+
+
+- 
