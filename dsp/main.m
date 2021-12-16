@@ -25,21 +25,23 @@ plot(n, y);
 
 
 % hamming window
-hw = 0.54 - 0.46 * cos ((2 * pi * n) / (N-1));
+N_temp = 100;
+n_temp = 0:N_temp-1;
 
+hw = 0.54 - 0.46 * cos ((2 * pi * n_temp) / (N_temp-1));
+pad_hw = [zeros(1,200), hw, zeros(1,200)]
 subplot(4,2,3);
-plot(n,hw)
+plot(n,pad_hw)
 
 
 
 % multiply with hamming
-yw = y .* hw;
+yw = y .* pad_hw;
 subplot(4,2,4)
 plot(yw)
 
-
 % recangular window
-rw=ones(1,N);
+rw=[zeros(1,200) ones(1,100), zeros(1,200)]
 subplot(4,2,5)
 plot(n,rw);
 
@@ -51,12 +53,16 @@ plot(yw)
 
 
 % triangular window
-tw  = 1 - (abs(2*n - N + 1)/(N-1))  
+N_temp = 100;
+n_temp = 0:N_temp-1;
+tw  = 1 - (abs(2*n_temp - N_temp + 1)/(N_temp-1))  
+pad_tw = [zeros(1,200), tw, zeros(1,200)]
 subplot(4,2,7);
-plot(n,tw)
+plot(n,pad_tw)
+
 
 % multiply with triangular window
-yw = y .* tw;
+yw = y .* pad_tw;
 
 subplot(4,2,8)
 plot(n,yw)
