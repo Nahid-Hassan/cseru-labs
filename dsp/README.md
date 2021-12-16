@@ -1,5 +1,7 @@
 # DSP Lab Final
 
+***WARNNING All code I written in octave. This code is same in Matlab but sometimes may cause error. Like "single qoutation" use in matlab but "both single and double qoutation used in octave" .... octave use "endfor" "endif" "endfunction" matlab just use "end"***
+
 ## List of Experiments
 
 1. To develop programs for generating elementary signal functions like, 
