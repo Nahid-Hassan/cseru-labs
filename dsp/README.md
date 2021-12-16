@@ -26,7 +26,7 @@
 
 ### Experiment - 1
 
-```m
+```matlab
 % To develop programs for generating elementary signal functions like, 
 % Unit Step, Ramp, Exponential, Sine and Cosine sequences.
 % Demonstrate the effect of sampling, aliasing.
@@ -115,7 +115,7 @@ title("Discrete Sinusoidal Sine Wave");
 
 **Part of Experiment - 1(Composite Harmonic Sinusoidal Signal)**:
 
-```m
+```matlab
 % _analog signal
 % x(t) = 5 sin ( 2 * pi * 2 * t + phase)
 
@@ -171,7 +171,7 @@ title("Composite Signal");
 
 ### Experiment - 2
 
-```m
+```matlab
 % 2) To develop the program for finding the convolution between two sequences.
 % Given sequences
 
@@ -242,7 +242,7 @@ title('Convolution between two Sequences');
 
 ### Mock Test Solution - 1
 
-```m
+```matlab
 % x(t) = 2 sin 2pi 1000 t
 
 clc;
