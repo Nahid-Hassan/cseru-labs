@@ -142,3 +142,156 @@ endfor
 ```
 
 ![images](images/expr-2-1.png)
+
+### Experiment - 2 -2(Bipolar NRZ-L and NRZ-I Modulation and Demodulation)
+
+```matlab
+clear all;
+close all;
+clc;
+
+bits = [0 1 0 0 1 1 1 0];
+bit_dur = 2;
+
+fs = 100;
+T = length(bits) * bit_dur;
+
+t = 0:1/fs:T-(1/fs);
+
+% NRZ-L
+for i = 1:length(bits)
+  if bits(i) == 0
+    nrzl((i-1)*fs*bit_dur+1:i*fs*bit_dur) = -3;
+  else
+    nrzl((i-1)*fs*bit_dur+1:i*fs*bit_dur) = 3;
+  endif
+endfor
+
+subplot(2,1,1);
+plot(t,nrzl);
+ylim([-5,5]);
+xlim([0, T]);
+grid on;
+title("NRZ-L");
+xlabel("Time");
+ylabel("Amplitude");
+
+% demodulation NRZ-L
+for i = 1:length(nrzl)/(fs*bit_dur)
+  if nrzl((i-1)*fs*bit_dur+1:i*fs*bit_dur) == ones(1, (fs*bit_dur)) .* -3
+    disp(0);
+  else
+    disp(1);
+  endif
+endfor  
+
+
+% NRZ-I if found 1-> transition
+lastbit = 3;
+for i = 1:length(bits)
+  if bits(i) == 1
+    nrzi((i-1)*fs*bit_dur+1:i*fs*bit_dur) = -lastbit;
+    lastbit = -lastbit;
+  else
+    nrzi((i-1)*fs*bit_dur+1:i*fs*bit_dur) = lastbit;
+  endif
+endfor
+
+subplot(2,1,2);
+plot(t,nrzi);
+ylim([-5,5]);
+grid on;
+title("NRZ-I");
+xlabel("Time");
+xlim([0, T]);
+ylabel("Amplitude");
+
+% demodulation NRZ-I
+
+% Hopefully Added Very soon 
+```
+
+![images](images/expr-2-2.png)
+
+### Experiment - 2-3(Polar RZ, Manchester, Differential Manchester)
+
+```matlab
+clear all;
+close all;
+clc;
+
+bits = [0 1 0 0 1 1];
+bit_dur = length(bits);
+
+fs = 100;
+T = length(bits) * bit_dur;
+
+t = 0:1/fs:T-(1/fs);
+
+% Polar RZ Modulation
+one = [ones(1, (fs/2)*bit_dur).*3, zeros(1,(fs/2)*bit_dur)];
+zero = [ones(1, (fs/2)*bit_dur).*-3, zeros(1,(fs/2)*bit_dur)];
+
+for i = 1:length(bits)
+  if bits(i) == 1
+    polar_rz((i-1)*fs*bit_dur+1:i*fs*bit_dur) = one;
+  else
+    polar_rz((i-1)*fs*bit_dur+1:i*fs*bit_dur) = zero;
+  endif
+endfor
+
+
+
+subplot(3,1,1);
+plot(t, polar_rz, 'linewidth', 3);
+ylim([-5,5]);
+xlim([0,T]);
+grid on;
+title("Polar RZ");
+
+% demodulation Polar RZ
+disp("Polar RZ");
+for i = 1:length(polar_rz)/(fs*bit_dur)
+  if polar_rz((i-1)*fs*bit_dur+1:i*fs*bit_dur) == one
+    disp(1);
+  else
+    disp(0);
+  endif
+endfor
+
+% modulation of polar manchester 
+one = [ones(1, (fs/2)*bit_dur).*-3, ones(1,(fs/2)*bit_dur).*3];
+zero = [ones(1, (fs/2)*bit_dur).*3, ones(1,(fs/2)*bit_dur).*-3];
+
+for i = 1:length(bits)
+  if bits(i) == 1
+    manchester((i-1)*fs*bit_dur+1:i*fs*bit_dur) = one;
+  else
+    manchester((i-1)*fs*bit_dur+1:i*fs*bit_dur) = zero;
+  endif
+endfor
+
+subplot(3,1,2);
+plot(t, manchester, 'linewidth', 3);
+ylim([-5,5]);
+xlim([0,T]);
+grid on;
+title("Polor Manchester");
+
+% demodulation Polar Manchester
+disp("Manchester");
+for i = 1:length(manchester)/(fs*bit_dur)
+  if manchester((i-1)*fs*bit_dur+1:i*fs*bit_dur) == one
+    disp(1);
+  else
+    disp(0);
+  endif
+endfor
+
+
+% differential manchester
+
+% added very soon
+```
+
+![images](images/expr-2-3.png)

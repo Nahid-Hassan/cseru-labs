@@ -24,13 +24,10 @@ plot(t, x, 'linewidth', 3)
 ylim([-5,7])
 
 % demodulation
-out = []
 for i = 1:length(x)/(fs*bit_dur)
   if x(1,(i-1)*fs*bit_dur+1:i*fs*bit_dur) == zeros(1, fs*bit_dur)
-    out.horzcat([0])
+    disp(0);
   else
-    out.horzcat(1)
+    disp(1);
   endif
 endfor
-
-disp(out)
