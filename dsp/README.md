@@ -25,7 +25,6 @@
     - [Mock Test Solution Advanced](#mock-test-solution-advanced)
     - [Experiment - 4 (Auto and Cross Correlation)](#experiment---4-auto-and-cross-correlation)
     - [Experiment - 3(DFT)](#experiment---3dft)
-    - [Experiment - 5](#experiment---5)
 
 ### Experiment - 1
 
@@ -464,5 +463,48 @@ plot(n,yw)
 
 ### Experiment - 4 (Auto and Cross Correlation)
 
+```matlab
+clc;
+clear all;
+close all;
+
+%x=input('give fist signal');
+x=[1 2 3 4];
+%h=input('give 2nd signal');
+h=[1 2 1 2];
+
+subplot(3,1,1);
+stem(x);
+title('Input Sequence');
+
+subplot(3,1,2);
+stem(h);
+title('Impluse Sequence');
+
+h=fliplr(h);
+n1= length(x);
+n2= length(h);
+
+X=[x,zeros(1,n2)];
+Y=[h,zeros(1,n1)];
+
+
+for i=1:n1+n2-1
+  y(i)=0;
+  for j=1:n1
+    if(i-j+1>0)
+      y(i)= y(i) + X(j)*Y(i-j+1);
+    else
+     end
+  endfor
+endfor
+subplot(3,1,3);
+stem(y);
+title('Correlation Solution')
+```
+
+![images](images/cross.png)
+
 ### Experiment - 3(DFT)
-### Experiment - 5
+
+https://manikarea.com/digital-signal-processing/discrete-fourier-transform-dft-along-with-idft-with-matlab-code/
