@@ -4,7 +4,7 @@
 
 ## List of Experiments
 
-1. To develop programs for generating elementary signal functions like, 
+1. To develop programs for generating elementary signal functions like,
     - Unit Step, Ramp, Exponential, Sine and Cosine sequences.
     - Demonstrate the effect of sampling, aliasing. <mark>Done</mark>
 2. To develop the program for finding the convolution between two sequences. <mark>Done</mark>
@@ -12,7 +12,7 @@
 4. To develop the program for finding the Autocorrelation of a sequence. <mark>Running</mark>
 5. To develop the program for finding the magnitude and phase response of system described by system function H(s).
 6. Mock Test. <mark>Done</mark>
-7. Mock Test Advanced. 
+7. Mock Test Advanced.
 
 ## Table of Contents
 
@@ -29,7 +29,7 @@
 ### Experiment - 1
 
 ```matlab
-% To develop programs for generating elementary signal functions like, 
+% To develop programs for generating elementary signal functions like,
 % Unit Step, Ramp, Exponential, Sine and Cosine sequences.
 % Demonstrate the effect of sampling, aliasing.
 
@@ -38,7 +38,7 @@
 % N = input("Enter the number of data points for Unit Step Sequence: ");
 
 N = 21; % number of data points
-x = ones(1,N); 
+x = ones(1,N);
 n = 0:1:N-1;
 
 subplot(3,2,1);
@@ -298,7 +298,7 @@ plot(yw)
 
 
 % triangular window
-tw  = 1 - (abs(2*n - N + 1)/(N-1))  
+tw  = 1 - (abs(2*n - N + 1)/(N-1))
 subplot(4,2,7);
 plot(n,tw)
 
@@ -371,7 +371,7 @@ plot(yw)
 % triangular window
 N_temp = 100;
 n_temp = 0:N_temp-1;
-tw  = 1 - (abs(2*n_temp - N_temp + 1)/(N_temp-1))  
+tw  = 1 - (abs(2*n_temp - N_temp + 1)/(N_temp-1))
 pad_tw = [zeros(1,200), tw, zeros(1,200)]
 subplot(4,2,7);
 plot(n,pad_tw)
@@ -446,7 +446,7 @@ plot(yw)
 % triangular window
 N_temp = 100;
 n_temp = 0:N_temp-1;
-tw  = 1 - (abs(2*n_temp - N_temp + 1)/(N_temp-1))  
+tw  = 1 - (abs(2*n_temp - N_temp + 1)/(N_temp-1))
 pad_tw = [tw tw tw tw tw]
 subplot(4,2,7);
 plot(n,pad_tw)
