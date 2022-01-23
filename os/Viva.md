@@ -48,10 +48,66 @@ What is a deadlock? A
 
 ## Threading
 
-**What is a threading?**: A thread is a separate execution context in a process. A process can have multiple threads. A thread can be a process that is executing a single function. 
+**What is a threading?**: A thread is a separate execution context in a process. A process can have multiple threads. A thread can be a process that is executing a single function.
+
+**Advantages of Thread**:
+
+- **Threads minimize the context switching time**.
+- Use of threads provides concurrency within a process.
+- Efficient communication.
+- It is more **economical** to create and context switch threads.
+- Threads allow **utilization of multiprocessor architectures** to a greater scale and efficiency.
+
+**Types of Thread**:
+
+Threads are implemented in following two ways −
+
+- **User Level Threads** (User managed threads.)
+
+**Advantages**:
+
+- Thread switching does not require Kernel mode privileges.
+- User level thread can run on any operating system.
+
+**Disadvantages**:
+
+- In a typical operating system, most system calls are blocking.
+- Multithreaded application cannot take advantage of multiprocessing.
+
+- **Kernel Level Threads** − (Operating System managed threads acting on kernel, an operating system core.)
+
+## IPC (Inter Process Communication)
+
+**What is IPC**: Inter process communication is the mechanism by which two processes can exchange data. It is also known as message passing.
 
 
+**Approaches to Interprocess Communication**:
 
-## IPC
+- **Pipe**: Pipe is a unidirectional communication channel. Two process bi-directional we need two pipes. Pipe are two types:
+
+    - Named Pipe
+    - Unnamed Pipe
+
+- **Socket**: The socket is the endpoint for sending or receiving data in a network. It is bi-directional communication channel.
+
+> Most of the operating systems use sockets for interprocess communication.
+
+- **Signal**: Already talked about.
+- **Shared Memory**: Shared memory is a memory segment that is shared between processes.
+
+**Synchronization in Interprocess Communication**:
+
+**Semaphore**:
+
+- A semaphore is a variable that is used to control access to a shared resource.
+- The two types of semaphores are
+  - **binary semaphores** and
+  - **counting semaphores**.
+
+**Mutual Exclusion**
+
+Mutual exclusion requires that only one process thread can enter the critical section at a time. This is useful for synchronization and also prevents race conditions.
+
 
 ## Process Synchronization
+
