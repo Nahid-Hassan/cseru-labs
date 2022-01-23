@@ -1,5 +1,19 @@
 # Viva Question and Solutions
 
+- [Viva Question and Solutions](#viva-question-and-solutions)
+  - [Process](#process)
+  - [Signal in OS](#signal-in-os)
+  - [Deadlock](#deadlock)
+  - [Threading](#threading)
+  - [IPC (Inter Process Communication)](#ipc-inter-process-communication)
+  - [Segmentation](#segmentation)
+  - [System Call](#system-call)
+  - [Mutual Exclusion](#mutual-exclusion)
+  - [Get CPU Information](#get-cpu-information)
+  - [Race Condition](#race-condition)
+  - [Virtual Memory](#virtual-memory)
+  - [Kernel](#kernel)
+
 ## Process
 
 **What is a process**:
@@ -109,5 +123,67 @@ Threads are implemented in following two ways −
 Mutual exclusion requires that only one process thread can enter the critical section at a time. This is useful for synchronization and also prevents race conditions.
 
 
-## Process Synchronization
+## Segmentation
+
+In Operating Systems, Segmentation is a memory management technique in which the memory is divided into the variable size parts. Each part is known as a segment which can be allocated to a process.
+
+The details about each segment are stored in a table called a segment table.
+
+Segment table contains mainly two information about segment:
+
+- **Base**: It is the base address of the segment
+- **Limit**: It is the length of the segment.
+
+**Translation of Logical address into physical address by segment table**:
+
+CPU generates a logical address which contains two parts:
+
+- Segment Number
+- Offset
+
+**Advantages of Segmentation**:
+
+- No internal fragmentation
+- Average Segment Size is larger than the actual page size.
+- Less overhead
+- It is easier to relocate segments than entire address space.
+- The segment table is of lesser size as compared to the page table in paging.
+
+## System Call
+
+In computing, a system call (commonly abbreviated to syscall) is the programmatic way in which a computer program requests a service from the kernel of the operating system on which it is executed.
+
+![images](images/syscall.png)
+
+## Mutual Exclusion
+
+
+A mutual exclusion (mutex) is a program object that **prevents simultaneous access to a shared resource.**
+
+## Get CPU Information
+
+To get cpu information in linux. we need open /proc/cpuinfo file.
+
+```c
+
+int main() {
+   FILE *cpuinfo = fopen("/proc/cpuinfo", "rb");
+}
+```
+
+## Race Condition
+
+A race condition occurs when two threads access a shared variable at the same time.
+
+## Virtual Memory
+
+A computer can address more memory than the amount physically installed on the system. This extra memory is actually called virtual memory and it is a section of a hard disk that's set up to emulate the computer's RAM.
+
+## Kernel
+
+```text
+Kernel is the core part of an operating system which manages
+system resources. It also acts like a bridge between
+application and hardware of the computer
+```
 
