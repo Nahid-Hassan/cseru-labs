@@ -1,6 +1,7 @@
 # Communication Lab Final 
 
-**License**:  Make a budget for Kalavuna.
+> **License**: Make a budget for Kalavuna.
+
 
 ## Table of Contents
 
