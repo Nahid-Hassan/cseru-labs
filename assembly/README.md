@@ -211,7 +211,7 @@ MAIN proc
     ;lea si, msg
     
     
-    ; INPUT PROMT
+    ; INPUT PROMPT
     lea dx, input_prompt
     mov ah, 09
     int 21h
@@ -254,7 +254,7 @@ MAIN proc
         lea dx, newline
         mov ah, 09
         int 21h
-        ;OUTPUT PROMT
+        ;OUTPUT PROMPT
         lea dx, output_prompt
         mov ah, 09
         int 21h
@@ -290,7 +290,7 @@ MAIN proc
     mov ax, @data
     mov ds, ax
     
-    ; INPUT PROMT                                                       
+    ; INPUT PROMPT                                                       
     lea dx, input_prompt
     mov ah, 09
     int 21h
