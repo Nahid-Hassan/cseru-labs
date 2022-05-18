@@ -96,6 +96,11 @@ end main
 
 > Simple enough: VISUALIZATION
 
+1. Input Prompt. 
+2. Read string until user press enter key.
+3. Print newline and output prompt.
+4. Display result in reverse order.
+
 ```
 READ abcdef
 
@@ -105,6 +110,7 @@ si[0]   si[1]   si[2]   si[3]   si[4]   si[5]   si[6]
 
 1. So first we need to decrease `si` by `1`
 2. Then `mov` one by one value into the `dl` register and decrease the `si` register.
+3. Using function `02` print the character from dl register.
 3. If `si` is `zero` then `exit` the program.
 
 ```assembly
