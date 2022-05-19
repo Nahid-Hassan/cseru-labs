@@ -1,6 +1,11 @@
 ### Computer Science and Engineering Lab Solution - University of Rajshahi
 
-In this repository I am trying to contribute my **3rd** year and **4th** year lab solutions with documentation. I am not guaranteed that all the code is **BUG** free. If you follow my code it is your responsibility. 
+In this repository I am trying to contribute my **3rd** year and **4th** year lab solutions with documentation. I am not guaranteed that all the code is **BUG** free. If you follow my code it is your responsibility 😴. 
+
+Some of the resource links are added in the various `README.md` documentation files in different directories. I want to gives all of you very very special thanks. You all are awesome. 
+
+Most of the time I feel, I am 😑-🙇 and also my works. But when I see it helps others my feelings ....😇.... Thanks for visiting my repository. 
+
 
 **Best regards**<br>
 Name: Md. Nahid Hassan<br>
