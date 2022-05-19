@@ -1,0 +1,21 @@
+1. Say that the main thread of a process, P, has four local variables, a, b, c, and d
+   and a global variable, S. P assigns a = 5; b = 6; c = 3; d = 2; and S = 0. 
+   P has three threads T1, T2, and T3, where three threads does the folowing three tasks:
+   T1: E = E + a + b
+   T2: E = E + b / c
+   T3: E = E + d
+   
+   Say, the main thread print the value of E before exiting, what will be the otput if:
+   a) there is only one physical processor with one logical processor and if the main thread wait for  
+      all of its threads to finish their tasks?
+   b) there is only one physical processor with one logical processor and if the main thread does not   
+      wait for any of its threads to finish their tasks?
+   c) there are four physical processors having one logical processor in each physical processor and    
+      if the main thread wait for all of its threads to finish their tasks?
+      
+2. Is there any difference between a thread and a child process? What?
+
+3. In a server-client model, what is better: prepare a  separate thread or a child process for handling 
+   a client? Why?
+   
+4. Why do recent systems support logical processors?

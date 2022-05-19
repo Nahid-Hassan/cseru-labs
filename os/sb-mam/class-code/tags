@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+count	fork-output.c	/^int count = 0;$/;"	v
+main	argcv.c	/^int main(int argc, char const *argv[])$/;"	f
+main	execlp.c	/^int main() {$/;"	f
+main	fork-output.c	/^int main()$/;"	f
+main	hi.c	/^int main(int argc, char *argv[])$/;"	f
+main	infinity-loop-process-basics.c	/^int main() {$/;"	f
+main	named-pipe-read.c	/^int main() {$/;"	f
+main	named-pipe-write.c	/^int main()$/;"	f
+main	open.c	/^int main()$/;"	f
+main	process-creation-forking.c	/^int main() {$/;"	f
+main	process-id.c	/^int main() {$/;"	f
+main	read-write.c	/^int main() {$/;"	f
+main	unnamed-pipe2.c	/^int main(){$/;"	f
+main	zombie.c	/^int main(int argc, char *argv[]) {$/;"	f

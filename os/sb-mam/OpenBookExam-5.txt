@@ -1,0 +1,14 @@
+1. Imagine that you are an OS developer. In which way you would like to deal with deadlock? Why?
+2. Write a C program to show that deadlock happens in two processes?
+3. Say one process has two threads, T1 and T2, which are modifying a global variable.
+   The main thread wait for T1 and T2 so that they can finish their tasks.
+   T1 and T2 use mutex to syncronize their works. In which case, deadlock happens? Why?
+          Case-1                                              Case-2
+   -------------------------------------            -------------------------------------
+        T1              T2                             T1                  T2
+   mutex(lock)         mutex(lock)                  mutex(lock)         mutex(lock)
+   critical section    critical section             critical section    critical section
+   mutex(unlock)       mutex(unlock)                mutex(unlock)       mutex(unlock)
+   
+4. Draw a resource allocation graph and its corresponding graph using your own example.
+   Do not include the examples available in the book or Internet.
