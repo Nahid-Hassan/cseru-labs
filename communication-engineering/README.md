@@ -4,6 +4,8 @@
 
 > **Note**: Another complete ICE lab solution is here <https://github.com/mhrico/ICE3261>. Thanks goes to RICO & Mamun. 
 
+> A general VIVA Question is asked in the lab exam - `What is modulation and demodulation`. এইটা খায় না মাথায় দেয়, এর ব্যবহার etc etc..? 
+
 ## Table of Contents
 
 ### Experiment -1 (Analog and Digital Signal)
