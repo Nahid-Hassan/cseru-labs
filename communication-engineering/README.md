@@ -2,6 +2,7 @@
 
 > **License**: Make a budget for Kalavuna.
 
+> **Note**: Another complete ICE lab solution is here <https://github.com/mhrico/ICE3261>. Thanks goes to RICO & Mamun. 
 
 ## Table of Contents
 
