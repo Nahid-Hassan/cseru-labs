@@ -1,5 +1,7 @@
 # CSE-3232 (Microprocessor and Assembly Language Lab)
 
+> **Note**: Another good solution is here <https://github.com/Abdur-Rahim-sheikh/Microprocessor_assembly_language_3231>. Thanks goes to `Abdur Rahim Sheikh (Abir)`.
+
 **Table of Contents**:
 
 - [CSE-3232 (Microprocessor and Assembly Language Lab)](#cse-3232-microprocessor-and-assembly-language-lab)
