@@ -6,6 +6,23 @@ Some of the resource links are added in the various `README.md` documentation fi
 
 Most of the time I feel, I am 😑-🙇 and also my works. But when I see it helps others my feelings ....😇.... Thanks for visiting my repository. 
 
+**Repository Structure**:
+
+```
+├── assembly
+│   └── images
+│   └── (src codes)
+│   └── README.md (Readme contains others well formed repository of our dept senior and classmates also)
+├── communication-engineering
+│   └── images
+│   └── (src codes)
+│   └── README.md
+├── computer-networks
+│   ├── IP-Class
+│   ├── multi-server-client
+│   └── server-client
+```
+
 
 **Best regards**<br>
 Name: Md. Nahid Hassan<br>
