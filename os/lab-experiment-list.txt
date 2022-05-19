@@ -1,0 +1,65 @@
+4
+
+
+Create a process, named Laltu, having three processes, named Ittu, Bittu, and Mittu .
+Laltu reads two variables 'a' and 'b' which all its child process know somehow.
+Ittu, Bittu, and Mittu  perform addition, subtraction and multiplication of
+two variables read by Laltu and keep the output in a variable, 'Result'.
+Result will be seen and accessed by all processes. That means all processes will see the updated value of 'Result.
+All processes print their process ID, CPU Info, and values of 'a' and 'b' before performing their corresponding operation using separate printf instruction. Then they perform their operations which they are supposed to be done. Then each process will print 'Result'.
+Laltu will waits until Ittu, Bittu and Mittu finish their tasks.
+Take necessary steps to avoid inconsistency in 'Result'.
+
+
+
+
+3
+
+Create a process, named MultiHead, having three threads, named Ittu, Bittu, and Mittu .
+ Ittu, Bittu, and Mittu  perform addition, subtraction and multiplication of two variables sent by the main thread of the process and keep the output in a global variable, result. All threads print their process ID, thread ID, CPU Info and the global variable, 'result'.
+The main thread waits until each thread finish its task.
+The main thread reads and sends two integer values to each thread 100 times.
+If any thread finds that 'result' = 100, it immediately send signal to the main thread to stop the process.
+Take necessary steps to avoid thread racing.
+
+
+2
+
+1. Create a process, named PipeCreator, which can take 'n' number of name from the terminals and create 'n' named pipes.
+
+2. Create two process named 'Minu' and 'Binu' which communicates via a named pipe created by PipeCreator.
+Both process takes pipe name via terminals.
+At first Minu will send its PID, its Parent's PID, and a Hello message to Binu via the common named pipe.
+Binu will display all messages received from Minu via the common named pipe in its shell.
+After introductory message Minu will send message which user will type in the terminal.
+Binu will send message to Minu only once and that will be 'Bye'.
+Both Minu and Binu will terminate when they will receive 'Bye' message from the other side.
+For Minu, the user will type 'Bye' message.
+Binu will send static 'Bye' message to 'Minu' after getting 'Bye'  message from Minu.
+
+
+
+1
+
+Create a process, named Mellow, having two child processes named 'Pillow' and 'Killow'.
+All processes show their PIDs & CPU information in an infinte loop.
+Mellow shows also its own child processes PIDs. Check two cases:
+        a) If Pillow and Killow are killed manually before Mellow.
+        b) If Mellow is killed manually before Pillow and Killow.
+
+Output can be:
+$./Mellow
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4036 running at CPU-7.
+I am child-4037 running at CPU-10.
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4036 running at CPU-7.
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4037 running at CPU-10.
+I am child-4036 running at CPU-7.
+
+$ pstree -p
+├─gnome-terminal-(3284)─┬─bash(3292)───Mellow(4035)─┬─Killow(4037)
+                                                      │                       │                           └─Pillow(4036)
+
+$ kill - 9 <PID>
