@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
             fd = open(argv[1], O_WRONLY);
 
             /* write message to pipe */
-            write(fd, "Binu say bye", strlen("bye") + 1);
+            write(fd, "Binu Say Bye", strlen("binu say bye") + 1);
             close(fd);
             exit(0);
         }

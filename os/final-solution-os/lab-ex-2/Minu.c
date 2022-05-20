@@ -39,8 +39,6 @@ int main(int argc, char const *argv[]) {
         write(fd, buffer, strlen(buffer) + 1);
         close(fd);
 
-        printf("DEBUG: %s\n", buffer);
-
         if (strcmp(buffer, "bye") == 0) {
             fd = open(argv[1], O_RDONLY);
             read(fd, buffer, 100);
