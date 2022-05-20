@@ -1,4 +1,4 @@
-### Experiment - 1
+### Experiment - 2
 
 ```
 1. Create a process, named PipeCreator, which can take 'n' number of name from the terminals and create 'n' named pipes.
