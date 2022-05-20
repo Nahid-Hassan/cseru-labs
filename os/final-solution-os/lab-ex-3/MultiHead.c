@@ -17,6 +17,7 @@ pthread_mutex_t mutex;
 void *addition(void *args)
 {
     pthread_mutex_lock(&mutex);
+
     printf("\nFrom addition thread\n--------------------\n");
     // All threads print their process ID, thread ID, CPU Info and the Result, 'result'.
     printf("[ADDITION]: Process ID: %d\n", getpid());
@@ -32,13 +33,15 @@ void *addition(void *args)
     if (result == 100) {
         pthread_kill(pthread_self(), SIGUSR1);
     }
+    
     pthread_mutex_unlock(&mutex);
+    return NULL;
 }
 
 void *subtraction(void *args) {
     pthread_mutex_lock(&mutex);
+    
     printf("\nFrom subtraction thread\n--------------------\n");
-
     // All threads print their process ID, thread ID, CPU Info and the Result, 'result'.
     printf("[SUBTRACTION]: Process ID: %d\n", getpid());
     printf("[SUBTRACTION]: Thread ID: %ld\n", pthread_self());
@@ -54,11 +57,14 @@ void *subtraction(void *args) {
     {
         pthread_kill(pthread_self(), SIGUSR1);
     }
+
     pthread_mutex_unlock(&mutex);
+    return NULL;
 }
 
 void *multiplication(void *args) {
     pthread_mutex_lock(&mutex);
+
     printf("\nFrom multiplication thread\n--------------------\n");
     printf("[MULTIPLICATION]: Process ID: %d\n", getpid());
     printf("[MULTIPLICATION]: Thread ID: %ld\n", pthread_self());
@@ -74,7 +80,9 @@ void *multiplication(void *args) {
     {
         pthread_kill(pthread_self(), SIGUSR1);
     }
+
     pthread_mutex_unlock(&mutex);
+    return NULL;
 }
 
 int main(int argc, char const *argv[])
@@ -91,7 +99,8 @@ int main(int argc, char const *argv[])
         pthread_create(&Mittu, NULL, multiplication, (void *)&nums);
 
         printf("\n\n");
-        // sleep(.1);
+
+        sleep(.1);
     }
 
     // Ittu, Bittu, and Mittu  join the main thread of the process.
@@ -101,3 +110,4 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+

@@ -3,6 +3,10 @@
 #include <sys/stat.h> /* mkfifo */
 
 int main(int argc, char const *argv[]) {
+    // argv[0] = ./PipeCreator
+    // argv[1] = pipe1 
+    // argv[2] = pipe2
+
     for (int i = 1; i < argc; i++) {
         /* check if file exists */
         if (access(argv[i], F_OK) == 0) {

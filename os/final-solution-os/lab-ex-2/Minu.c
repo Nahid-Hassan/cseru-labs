@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
     char ppid[10];    /* to store parent pid */
     
     /* convert int to string */
-    sprintf(cpid, "%d", getpid());
+    sprintf(cpid, "%d", getpid()); 
     sprintf(ppid, "%d", getppid());
 
     /* create message */

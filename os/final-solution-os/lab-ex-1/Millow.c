@@ -23,7 +23,7 @@ int main() {
 
     */
 
-    cpid1 = fork();
+    cpid1 = fork(); 
 
     if (cpid1 < 0) {
         printf("Error[1]: fork() failed\n");
@@ -41,7 +41,7 @@ int main() {
         } else if (cpid2 > 0) {
             while (true) {
                 pid = getpid();
-                cpuId = sched_getcpu();
+                cpuId = sched_getcpu(); 
 
                 printf("Process-%u, Parent of Pillow-%u and Killow-%u, CPU-%d\n", pid, cpid1, cpid2, cpuId);
             }
