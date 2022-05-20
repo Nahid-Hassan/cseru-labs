@@ -1,0 +1,22 @@
+Create a process, named Mellow, having two child processes named 'Pillow' and 'Killow'.
+All processes show their PIDs & CPU information in an infinite loop.
+Mellow shows also its own child processes PIDs. Check two cases:
+        a) If Pillow and Killow are killed manually before Mellow.
+        b) If Mellow is killed manually before Pillow and Killow.
+
+Output can be:
+$./Mellow
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4036 running at CPU-7.
+I am child-4037 running at CPU-10.
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4036 running at CPU-7.
+Process-4035, parent of Pillow-4036 and Killow-4037, running at CPU-0.
+I am child-4037 running at CPU-10.
+I am child-4036 running at CPU-7.
+
+$ pstree -p
+├─gnome-terminal-(3284)─┬─bash(3292)───Mellow(4035)─┬─Killow(4037)
+                                                      │                       │                           └─Pillow(4036)
+
+$ kill - 9 <PID>
