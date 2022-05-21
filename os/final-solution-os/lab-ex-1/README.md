@@ -29,6 +29,12 @@ All of the code files are in:
 
 **Process goes to under systemd**:
 
+```bash
+$ pstree 
+or
+$ pstree -p
+```
+
 ![images](images/2.png)
 
 **Kill the process Pillow and Killow from Terminal**:
