@@ -18,6 +18,7 @@ void *thread_func1()
     // if sched_getscheduler(getpid()) == SCHED_FIFO return 0 then RR else FIFO
     printf("[BlackHole-Thread-1]: Scheduling algorithm: %s\n", sched_getscheduler(getpid()) == SCHED_FIFO ? "FIFO" : "RR");
     printf("\n\n");
+    return NULL;
 }
 
 void *thread_func2()
@@ -30,17 +31,17 @@ void *thread_func2()
     // if sched_getscheduler(getpid()) == SCHED_FIFO return 0 then RR else FIFO
     printf("[BlackHole-Thread-2]: Scheduling algorithm: %s\n", sched_getscheduler(getpid()) == SCHED_FIFO ? "FIFO" : "RR");
     printf("\n\n");
+    return NULL;
 }
 
 int main(int argc, char const *argv[])
 {
     pthread_t X, Y;
-    int rc1, rc2;
 
     for (int i = 0; i < 10; i++)
     {
-        rc1 = pthread_create(&X, NULL, thread_func1, NULL);
-        rc2 = pthread_create(&Y, NULL, thread_func2, NULL);
+        pthread_create(&X, NULL, thread_func1, NULL);
+        pthread_create(&Y, NULL, thread_func2, NULL);
 
         CPU_ZERO(&cpuset);
         CPU_SET(i % MAX_CPU_COUNT, &cpuset);
@@ -52,5 +53,6 @@ int main(int argc, char const *argv[])
     pthread_join(Y, NULL);
 
     printf("[BlackHole]: Main completed. Exiting.\n");
+    
     return 0;
 }

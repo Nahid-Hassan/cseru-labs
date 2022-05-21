@@ -43,12 +43,16 @@ int main(int argc, char const *argv[])
 
             for (i = 0; i < 10; i++)
             {
+                /* Clears set, so that it contains no CPUs. */
                 CPU_ZERO(&cpuset);
+                /* Add Cpu to set */
                 CPU_SET(i % MAX_CPU_COUNT, &cpuset);
+                
+                /* set the process affinity */
                 sched_setaffinity(0, sizeof(cpu_set_t), &cpuset);
 
                 struct sched_param sp = {.sched_priority = 80};
-                int ret = sched_setscheduler(0, SCHED_FIFO, &sp);
+                sched_setscheduler(0, SCHED_FIFO, &sp);
 
                 // show process PID
                 printf("[MAIN]: Child process PID: %d, Parent Process PID %d\n", getpid(), getppid());
@@ -59,8 +63,6 @@ int main(int argc, char const *argv[])
             }
         }
     }
-
-
 
     return 0;
 }
