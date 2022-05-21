@@ -10,7 +10,9 @@ two variables read by Laltu and keep the output in a variable, 'Result'.
 
 - Result will be seen and accessed by all processes. That means all processes will see the updated value of 'Result.
 
-- All processes print their process ID, CPU Info, and values of 'a' and 'b' before performing their corresponding operation using separate printf instruction. Then they perform their operations which they are supposed to be done. Then each process will print 'Result'.
+- All processes print their process ID, CPU Info, and values of 'a' and 'b' before performing their 
+corresponding operation using separate printf instruction. Then they perform their operations 
+which they are supposed to be done. Then each process will print 'Result'.
 
 - Laltu will waits until Ittu, Bittu and Mittu finish their tasks.
 
@@ -20,7 +22,8 @@ two variables read by Laltu and keep the output in a variable, 'Result'.
 ![images](images/1.png)
 
 
-This two function `void write_to_shm(int x)` and `int read_from_shm(void)` are need to implement every program file. That's why I create a separate header file and include it every program to make code small and concise.
+This two function `void write_to_shm(int x)` and `int read_from_shm(void)` are need to implement every program file. 
+That's why I create a separate header file and include it every program to make code small and concise.
 
 Both `write_to_shm()` and `read_from_shm()` are both implemented pretty state forward.
 
