@@ -17,6 +17,12 @@ All of the code files are in:
 - `./Killow.c`
 
 
+> Another good command style that I forget to show..... Thanks Shadin Shanto
+
+![images](images/10.png)
+
+
+
 **a) If Pillow and Killow are killed manually before Mellow.**
 
 **Answer**: `Two zombie` process is created. Millow running independently. 
