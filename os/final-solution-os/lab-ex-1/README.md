@@ -8,6 +8,8 @@ Mellow shows also its own child processes PIDs. Check two cases:
         b) If Mellow is killed manually before Pillow and Killow.
 ```
 
+> **Note**: If you don't understand the problem and solution you need to read this <https://github.com/Nahid-Hassan/cseru-labs/blob/main/os/Basics%20Upto%20Pipe.pdf>
+
 All of the code files are in:
 
 - `./Millow.c`
