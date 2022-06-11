@@ -2,6 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2 
 
+def pixel_freq(mat):
+    d = dict()
+    for x in range(256):
+        d[x] = 0
+    
+    for x in mat:
+        for y in x:
+            d[y] += 1
+    
+    return d
+
 def main():
     path = 'lenna.jpeg'
     img = plt.imread(path)
@@ -12,9 +23,10 @@ def main():
     green = img[:,:,1]
     blue = img[:,:,2]
 
-    red_u, red_c = np.unique(red, return_counts=True)
-    green_u, green_c = np.unique(green, return_counts=True)
-    blue_u, blue_c = np.unique(blue, return_counts=True)
+    red_dict = pixel_freq(red)
+    green_dict = pixel_freq(green)
+    blue_dict = pixel_freq(blue)
+    # gray_dict = pixel_freq(gray)
     
     red = cv2.calcHist([img], [0], None, [256], [0, 256])
     green = cv2.calcHist([img], [1], None, [256], [0, 256])
@@ -24,16 +36,17 @@ def main():
     
     plt.subplot(1,2,1)
     plt.title("Custom")
-    plt.plot(red_u, red_c, 'r')
-    plt.plot(green_u, green_c, 'g')
-    plt.plot(blue_u, blue_c, 'b')
+    plt.plot(red_dict.keys(), red_dict.values(), 'r')
+    plt.plot(green_dict.keys(), green_dict.values(), 'g')
+    plt.plot(blue_dict.keys(), blue_dict.values(), 'b')
 
     plt.subplot(1,2,2)
     plt.title("Using calcHist Function")
     plt.plot(green, 'g')
     plt.plot(red, 'r')
     plt.plot(blue, 'b')
-
+    
+    plt.savefig('Histogram.png')
     plt.show()
 
 if __name__ == '__main__':
