@@ -10,7 +10,13 @@ def conv(mat, kernel):
     new_image = np.zeros((row - r, col - c), dtype=np.uint8)
     for i in range(row - r):
         for j in range(col - c):
-            new_image[i][j] = np.sum(np.multiply(mat[i:3+i, j:3+j], kernel))
+            temp = np.sum(np.multiply(mat[i:3+i, j:3+j], kernel))
+            if temp > 255:
+                new_image[i][j] = 255
+            elif temp < 0:
+                new_image[i][j] = 0
+            else:
+                new_image[i][j] = temp
 
     return new_image 
 
