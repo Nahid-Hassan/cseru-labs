@@ -23,7 +23,7 @@ def main():
     for i in range(r):
         for j in range(c):
             bit_1[i][j] = grayscale[i][j] & k
-
+    # bit_1 = grayscale & k
     bit_2 = grayscale & (k << 1)
     bit_3 = grayscale & (k << 2)
     bit_4 = grayscale & (k << 3)
