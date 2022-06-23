@@ -5,8 +5,8 @@
 **Table of Contents**:
 
 - [Parallel Processing](#parallel-processing)
-    - [Setup](#setup)
-    - [Lab - 1](#lab---1)
+	- [Setup](#setup)
+	- [Lab - 1 (Setup System - )](#lab---1-setup-system---)
 
 ## Setup
 
@@ -29,5 +29,40 @@ nahid@cseru:~$
 
 ```
 
-## Lab - 1
+## Lab - 1 (Setup System - 2022-06-23)
+
+**To know total CPU-cores information**:
+
+```bash
+nahid@cseru $ grep -c processor /proc/cpuinfo
+4                                                   # for my case it is 4
+```
+
+**Hello World**:
+
+`./hello_world_mpi.c`	
+
+```c++
+#include <stdio.h>
+#include <mpi.h>
+
+int main(int argc, char **argv) 
+{
+    MPI_Init(&argc, &argv);
+    printf("Hello world\n"); 
+       
+    MPI_Finalize();
+}
+```
+
+**Compile & Run the program**:
+
+```bash
+nahid@cseru $ mpicc hello_world_mpi.c -o hello
+nahid@cseru $ mpirun --use-hwthread-cpus -np 4 ./hello       # -np stands for number of processors
+Hello world
+Hello world
+Hello world
+Hello world
+```
 
