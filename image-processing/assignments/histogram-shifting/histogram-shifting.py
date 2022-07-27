@@ -46,7 +46,7 @@ def main():
         if temp_img.shape[1] != 1:
             plt.subplot(2, 4, k + 1)
             plt.title(img_title[i])
-            plt.imshow(temp_img, cmap='gray')
+            plt.imshow(temp_img, cmap='gray')   
             k += 1
         else:
             plt.subplot(2, 4, k + 4)
