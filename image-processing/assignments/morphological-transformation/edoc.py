@@ -2,8 +2,9 @@
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
+import os
 
-
+os.environ["QT_QPA_PLATFORM"] = "wayland"
 """
 Concept:
 
