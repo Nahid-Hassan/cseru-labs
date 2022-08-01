@@ -45,6 +45,7 @@ def main():
         else:
             plt.imshow(image_set[i], cmap='gray')
 
+    plt.savefig('edoc.png')
     plt.show()
 
 if __name__ == '__main__':
