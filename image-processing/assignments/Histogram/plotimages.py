@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import cv2
 import numpy
 
+
 def main():
     # image path
     path = 'sunset.jpg'
