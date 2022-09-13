@@ -40,8 +40,8 @@ frequency_domain_shifted = np.fft.fftshift(frequency_domain)
 # first you need to take the absolute value of the 
 # frequecny domain image
 
-frequency_domain_abs = np.abs(frequency_domain)
-frequency_domain_shifted_abs = np.abs(frequency_domain_shifted)
+frequency_domain_abs = np.log1p(np.abs(frequency_domain))
+frequency_domain_shifted_abs = np.log1p(np.abs(frequency_domain_shifted))
 
 plt.subplot(1,2,1)
 plt.imshow(frequency_domain_abs, cmap='gray')
@@ -121,7 +121,7 @@ plt.imshow(H, cmap='gray')
 
 
 
-    <matplotlib.image.AxesImage at 0x7fd72ab366e0>
+    <matplotlib.image.AxesImage at 0x7f94bed3add0>
 
 
 
@@ -140,14 +140,14 @@ G_shifted = frequency_domain_shifted * H
 
 
 ```python
-G_shifted_abs = np.abs(G_shifted)
+G_shifted_abs = np.log1p(np.abs(G_shifted))
 plt.imshow(G_shifted_abs, cmap='gray')
 ```
 
 
 
 
-    <matplotlib.image.AxesImage at 0x7fd72a9c8fd0>
+    <matplotlib.image.AxesImage at 0x7f94bd3abdc0>
 
 
 
@@ -214,7 +214,7 @@ plt.imshow(HPF, cmap='gray')
 
 
 
-    <matplotlib.image.AxesImage at 0x7fd72a640400>
+    <matplotlib.image.AxesImage at 0x7f94bd01eb90>
 
 
 
@@ -227,7 +227,7 @@ plt.imshow(HPF, cmap='gray')
 
 ```python
 G_shifted = frequency_domain_shifted * HPF
-G_shifted_abs = np.abs(G_shifted)
+G_shifted_abs = np.log1p(np.abs(G_shifted))
 ```
 
 

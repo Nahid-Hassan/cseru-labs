@@ -8,7 +8,7 @@ spatial_domain = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 frequency_domain = np.fft.fft2(spatial_domain)
 frequency_domain_shifted = np.fft.fftshift(frequency_domain)
-frequency_domain_shifted_abs = np.abs(frequency_domain_shifted)
+frequency_domain_shifted_abs = np.log1p(np.abs(frequency_domain_shifted))
 
 # Lets create Gaussian Low Pass Filter
 M, N = spatial_domain.shape       # M->Row, N->Col
@@ -26,7 +26,7 @@ HPF = 1 - H
 
 # Image filter in frequency domain
 G_shifted = frequency_domain_shifted * HPF
-G_shifted_abs = np.abs(G_shifted)
+G_shifted_abs = np.log1p(np.abs(G_shifted))
 
 # Inverse fft
 # But before perform ifft we need to return back the low frequency to the corner
