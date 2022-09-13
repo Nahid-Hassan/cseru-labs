@@ -4,12 +4,13 @@ import cv2
 
 def pixel_freq(mat):
     d = dict()
+
     for x in range(256):
         d[x] = 0
     
-    for x in mat:
-        for y in x:
-            d[y] += 1
+    for row in mat:
+        for pixel in row:
+            d[pixel] += 1
     
     return d
 
