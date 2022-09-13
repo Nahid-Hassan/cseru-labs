@@ -97,6 +97,9 @@ For more understanding,
 
 ### Low Pass Filter
 
+![images](images/guassian.png)
+
+> Sigma and D0 are same.
 
 ```python
 M, N = spatial_domain.shape       # M->Row, N->Col
