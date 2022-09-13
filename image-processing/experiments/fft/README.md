@@ -61,7 +61,7 @@ plt.title("frequency_domain_shifted_abs")
 
 
     
-![png](output_10_1.png)
+![png](images/output_10_1.png)
     
 
 
@@ -127,7 +127,7 @@ plt.imshow(H, cmap='gray')
 
 
     
-![png](output_15_1.png)
+![png](images/output_15_1.png)
     
 
 
@@ -153,7 +153,7 @@ plt.imshow(G_shifted_abs, cmap='gray')
 
 
     
-![png](output_18_1.png)
+![png](images/output_18_1.png)
     
 
 
@@ -195,7 +195,7 @@ for i in range(len(img_set)):
 
 
     
-![png](output_22_0.png)
+![png](images/output_22_0.png)
     
 
 
@@ -220,7 +220,7 @@ plt.imshow(HPF, cmap='gray')
 
 
     
-![png](output_25_1.png)
+![png](images/output_25_1.png)
     
 
 
@@ -264,6 +264,6 @@ for i in range(len(img_set)):
 
 
     
-![png](output_29_0.png)
+![png](images/output_29_0.png)
     
 
