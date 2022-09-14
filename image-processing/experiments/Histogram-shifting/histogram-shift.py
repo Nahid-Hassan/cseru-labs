@@ -48,6 +48,6 @@ for i in range(len(img_set)):
         plt.imshow(img_set[i], cmap="gray")
     
 
-# plt.savefig("hist-shift.png")
+plt.savefig("hist-shift.png")
 plt.show()
 
