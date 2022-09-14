@@ -13,40 +13,32 @@ _, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
 
 
 def erosion(img, kernel):
-    # no padding
     row, col = img.shape
     r, c = kernel.shape
-    r1, c1 = r // 2 * 2, c // 2 * 2
-    # (255 + 255 + ... + 255) -> total 9 times
-    # np.sum(kernel) -> 9 * 255
-    cutoff = np.sum(kernel) * 255
 
-    new_img = np.zeros((row - r1, col - c1), dtype=np.uint8)
-    for x in range(row - r1):
-        for y in range(col - c1):
+    cutoff = np.sum(kernel) * 255
+    new_img = np.zeros((row - r + 1, col - r + 1), dtype=np.uint8)
+    for x in range(row - r + 1):
+        for y in range(col - r + 1):
             temp = np.sum(np.multiply(img[x:x+r, y:y+c], kernel))
             if temp == cutoff:
                 new_img[x, y] = 255
 
     return new_img
 
-
 def dilation(img, kernel):
-    # no padding
     row, col = img.shape
     r, c = kernel.shape
-    r1, c1 = r // 2 * 2, c // 2 * 2
 
     cutoff = 255
-    new_img = np.zeros((row - r1, col - c1), dtype=np.uint8)
-    for x in range(row - r1):
-        for y in range(col - c1):
+    new_img = np.zeros((row - r + 1, col - r + 1), dtype=np.uint8)
+    for x in range(row - r + 1):
+        for y in range(col - r + 1):
             temp = np.sum(np.multiply(img[x:x+r, y:y+c], kernel))
             if temp >= cutoff:
                 new_img[x, y] = 255
 
     return new_img
-
 
 kernel = np.ones((3, 3), dtype=np.uint8)
 
