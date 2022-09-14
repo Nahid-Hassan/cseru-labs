@@ -52,4 +52,5 @@ for i in range(len(img_set)):
     plt.imshow(img_set[i], cmap='gray')
     plt.title(img_title[i])
 
+plt.savefig('histogram high pass.png')
 plt.show()
