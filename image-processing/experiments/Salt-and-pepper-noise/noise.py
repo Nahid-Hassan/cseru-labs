@@ -60,5 +60,5 @@ for i in range(len(img_set)):
     plt.title(img_title[i])
     plt.imshow(img_set[i], cmap="gray")
 
-# plt.savefig("Salt-Pepper Noise.png")
+plt.savefig("Salt-Pepper Noise.png")
 plt.show()
