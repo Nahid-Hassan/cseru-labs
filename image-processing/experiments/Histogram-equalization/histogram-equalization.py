@@ -50,4 +50,5 @@ for i in range(len(img_set)):
     else:
         plt.imshow(img_set[i], cmap='gray')
 
+plt.savefig("histogram-equalization.png")
 plt.show()
