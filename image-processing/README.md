@@ -1,5 +1,48 @@
 # Digital Image Processing
 
+- **Note**: The contents of `labexam-2` are placed in `experiments` directory / folder.
+
+### Under `experiments` directory:
+
+```bash
+├── Gaussian-filter-in-frequency-domain
+│   ├── Frequency Domain Filter - Gaussian Filter.ipynb
+│   ├── gaussian-high-pass-filter.py
+│   ├── gaussian-low-pass-filter.py
+│   ├── histogram high pass.png
+│   ├── histogram low pass.png
+│   ├── images
+│   │   ├── guassian.png
+│   │   ├── output_10_1.png
+│   │   ├── output_15_1.png
+│   │   ├── output_18_1.png
+│   │   ├── output_22_0.png
+│   │   ├── output_25_1.png
+│   │   └── output_29_0.png
+│   ├── README.md
+│   └── under-tested.py
+├── Histogram-equalization
+│   ├── histogram-equalization.png
+│   └── histogram-equalization.py
+├── Histogram-shifting
+│   ├── histogram-shift.py
+│   └── hist-shift.png
+├── lenna.jpeg
+├── lenna-lc.jpg
+├── Morphology
+│   ├── abc.jpeg
+│   ├── edoc.png
+│   ├── edoc.py
+│   ├── hw.jpeg
+│   └── under_test.py
+└── Salt-and-pepper-noise
+    ├── clean_code.py
+    ├── noise.py
+    └── Salt-Pepper Noise.png
+```
+
+### Under `assignments` directory:
+
 ```bash
 .
 ├── assignments
