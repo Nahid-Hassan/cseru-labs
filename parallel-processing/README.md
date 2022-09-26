@@ -40,7 +40,7 @@ nahid@cseru $ grep -c processor /proc/cpuinfo
 
 **Hello World**:
 
-`./hello_world_mpi.c`	
+`./MPI_Hello_world.c`	
 
 ```c++
 #include <stdio.h>
