@@ -1,0 +1,10 @@
+P1 and P2 are follow-dependent.
+P1 and P3 are follow-dependent.
+P1 and P4 are output-dependent.
+P1 and P5 are parallel.
+P2 and P3 are parallel.
+P2 and P4 are anti-independent.
+P2 and P5 are parallel.
+P3 and P4 are anti-independent.
+P3 and P5 are parallel.
+P4 and P5 are parallel.
