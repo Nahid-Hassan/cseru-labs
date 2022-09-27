@@ -14,6 +14,7 @@
   - [Experiment-2 (Odd and Even Ranked Process)](#experiment-2-odd-and-even-ranked-process)
   - [Experiment - 3 (MPI Calculator)](#experiment---3-mpi-calculator)
   - [Understand Message Passing](#understand-message-passing)
+  - [Bernstain Algorithm](#bernstain-algorithm)
 
 ## Setup
 
@@ -242,3 +243,79 @@ Rank - 1, Sub = 20 - 10 = 10
 
 ## Understand Message Passing
 
+## Bernstain Algorithm
+
+`in.txt`
+
+```txt
+P1: C:=D*E;
+P2: M:=G+C;
+P3: A:=B+C;
+P4: C:=L+M;
+P5: F:=G/E;
+```
+
+`./bernstain.cpp`
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    freopen("in.txt", "r", stdin);
+
+    vector<vector<char>> in;
+    vector<char> out;
+    string s;
+
+
+    while(getline(cin, s)) {
+        bool flag = true;
+        vector <char> temp;
+        for (long unsigned int i = 1; i < s.size(); i++) {
+            if (flag && isalpha(s[i])) {
+                out.push_back(s[i]);
+                flag = false;
+                continue;
+            }
+            if (!flag && isalpha(s[i])) {
+                temp.push_back(s[i]);
+            }
+        }
+        in.push_back(temp);
+    }
+    
+    for (long unsigned int i = 0; i < in.size(); i++) {
+        for (long unsigned int j = i + 1; j < in.size(); j++) {
+            if (find(in[i].begin(), in[i].end(), out[j]) != in[i].end()) {
+                cout << "P" << i + 1 << " and P" << j + 1 << " are anti-independent.\n";
+                continue;
+            }
+            if (find(in[j].begin(), in[j].end(), out[i]) != in[j].end()) {
+                cout << "P" << i + 1 << " and P" << j + 1 << " are follow-dependent.\n";
+                continue;
+            }
+            if (out[i] == out[j]) {
+                cout << "P" << i + 1 << " and P" << j + 1 << " are output-dependent.\n";
+                continue;
+            }
+            cout << "P" << i + 1 << " and P" << j + 1 << " are parallel.\n";
+        }
+    }
+}
+```
+
+```bash
+nahid@cseru:/media/nahid/data-center/workspace/cseru-labs/parallel-processing/bernstain$ g++ bernstain.cpp 
+nahid@cseru:/media/nahid/data-center/workspace/cseru-labs/parallel-processing/bernstain$ ./a.out 
+P1 and P2 are follow-dependent.
+P1 and P3 are follow-dependent.
+P1 and P4 are output-dependent.
+P1 and P5 are parallel.
+P2 and P3 are parallel.
+P2 and P4 are anti-independent.
+P2 and P5 are parallel.
+P3 and P4 are anti-independent.
+P3 and P5 are parallel.
+P4 and P5 are parallel.
+```
