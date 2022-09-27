@@ -7,6 +7,7 @@
   - [Lab Experiment - 1 (Number or Process and Rank)](#lab-experiment---1-number-or-process-and-rank)
   - [Experiment-2 (Odd and Even Ranked Process)](#experiment-2-odd-and-even-ranked-process)
   - [Experiment - 3 (MPI Calculator)](#experiment---3-mpi-calculator)
+  - [Try to understand MPI Communication or Message Passing System](#try-to-understand-mpi-communication-or-message-passing-system)
 
 ## MPI Programming Basic Structure
 
@@ -173,3 +174,6 @@ Rank - 3, Div = 20 / 10 = 2
 Rank - 0, Sum = 20 + 10 = 30
 Rank - 1, Sub = 20 - 10 = 10
 ```
+
+## Try to understand MPI Communication or Message Passing System
+

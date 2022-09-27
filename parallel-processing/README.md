@@ -7,13 +7,13 @@
 - [Parallel Processing](#parallel-processing)
   - [Setup](#setup)
   - [Lab - 1 (Setup System - 2022-06-23)](#lab---1-setup-system---2022-06-23)
-- [Lab-1 Documentation](#lab-1-documentation)
   - [MPI Programming Basic Structure](#mpi-programming-basic-structure)
   - [MPI Hello World](#mpi-hello-world)
   - [Identifying the separate processes](#identifying-the-separate-processes)
   - [Lab Experiment - 1 (Number or Process and Rank)](#lab-experiment---1-number-or-process-and-rank)
   - [Experiment-2 (Odd and Even Ranked Process)](#experiment-2-odd-and-even-ranked-process)
   - [Experiment - 3 (MPI Calculator)](#experiment---3-mpi-calculator)
+  - [Understand Message Passing](#understand-message-passing)
 
 ## Setup
 
@@ -73,18 +73,6 @@ Hello world
 Hello world
 ```
 
-# Lab-1 Documentation
-
-- [Parallel Processing](#parallel-processing)
-  - [Setup](#setup)
-  - [Lab - 1 (Setup System - 2022-06-23)](#lab---1-setup-system---2022-06-23)
-- [Lab-1 Documentation](#lab-1-documentation)
-  - [MPI Programming Basic Structure](#mpi-programming-basic-structure)
-  - [MPI Hello World](#mpi-hello-world)
-  - [Identifying the separate processes](#identifying-the-separate-processes)
-  - [Lab Experiment - 1 (Number or Process and Rank)](#lab-experiment---1-number-or-process-and-rank)
-  - [Experiment-2 (Odd and Even Ranked Process)](#experiment-2-odd-and-even-ranked-process)
-  - [Experiment - 3 (MPI Calculator)](#experiment---3-mpi-calculator)
 
 ## MPI Programming Basic Structure
 
@@ -251,3 +239,6 @@ Rank - 3, Div = 20 / 10 = 2
 Rank - 0, Sum = 20 + 10 = 30
 Rank - 1, Sub = 20 - 10 = 10
 ```
+
+## Understand Message Passing
+
