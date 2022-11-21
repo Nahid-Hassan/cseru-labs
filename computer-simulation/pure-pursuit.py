@@ -1,4 +1,5 @@
 import math 
+import pygame
 
 vf = 20      # fighter velocity
 fp = (0, 0)  # fighter position
@@ -29,4 +30,29 @@ for t in range(T):
         fy = fighter_coordinates[t][1] + vf * ((bomber_coordinates[t][1] - fighter_coordinates[t][1]) / dist)
 
         fighter_coordinates.append([fx, fy])
+
+pygame.init()
+win = pygame.display.set_mode((300,400))
+pygame.display.set_caption('Bomber - Fighter')
+
+run = True
+while run:
+    pygame.time.delay(100)
     
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+        for i in range(len(fighter_coordinates)):
+            fp = fighter_coordinates[i]
+            bp = bomber_coordinates[i]
+            pygame.time.delay(100)
+            fp = [abs(fp[0]), abs(fp[0])]
+            bp = [abs(bp[0]), abs(bp[0])]
+
+            print(fp, bp)
+
+            pygame.draw.line(win, (255,0,0), fp, bp, 1)
+            pygame.display.update()
+
+pygame.quit()
