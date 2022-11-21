@@ -36,7 +36,7 @@ maxEF = 0
 #forward pass
 for i in index:
     if(len(activities[i].predecessor)==0):
-        activities[i].ef = duration
+        activities[i].ef = activities[i].duration
     else:
         maxtime = 0
         for x in activities[i].predecessor:
@@ -46,6 +46,7 @@ for i in index:
         activities[i].ef = activities[i].duration+maxtime
     maxEF = max(maxEF,activities[i].ef)
 
+print(maxEF)
 for i in range(len(index)):
     idx = index[len(index)-1-i]
     if(len(activities[idx].successor)==0):
