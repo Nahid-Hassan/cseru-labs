@@ -14,6 +14,7 @@
   - [Experiment-2 (Odd and Even Ranked Process)](#experiment-2-odd-and-even-ranked-process)
   - [Experiment - 3 (MPI Calculator)](#experiment---3-mpi-calculator)
   - [Understand Message Passing](#understand-message-passing)
+  - [Array Sum using MPI](#array-sum-using-mpi)
   - [Bernstain Algorithm](#bernstain-algorithm)
 
 ## Setup
@@ -260,7 +261,7 @@ int main(int argc, char **argv) {
     int sub_nums[20];
 
     MPI_Status status;
-
+    
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     if (rank == root_process) {
         int nums[20] = {1,2,3,4,5,6,7,8,9,10,11,12};
