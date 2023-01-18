@@ -17,6 +17,12 @@ string decrypt_msg(string msg, int key) {
     string res = "";
     
     for (char s : msg) {
+        // suppose example xyz and shift = 3;
+        // we get encrypted msg as abc;
+        // from a - key - 97 = 97 - 3 - 97 = -3 
+        // - 3 % 26 = -3    !!! what - getting ERROR!!! 
+        // (- 3 + 26 ) % 26 = 23 -> x  // our desire output
+        // so we need to add 26
         if (isupper(s)) res += (char) (s - key - 65 + 26) % 26 + 65;
         else if (islower(s)) res += (char) (s - key - 97 + 26) % 26 + 97;
         else res += s;
@@ -43,7 +49,3 @@ int main() {
 
     return 0;
 }
-
-/**
-XYZ
-*/
