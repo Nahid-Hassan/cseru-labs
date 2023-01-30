@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #16191b;
+  background-color: #eff2f3;
+}
+
+.card-title {
+  background: rgba(117, 205, 237, 0.358);
+}
+
+a {
+  text-decoration: none;
+}
