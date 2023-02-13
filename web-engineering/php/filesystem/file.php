@@ -14,7 +14,7 @@
         <h2 class="text-center pb-2">Online Library</h2>
         <div class="table-responsive">
             <table class="table table-striped table-condensed">
-                <thead class="thead-light">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Author</td>
