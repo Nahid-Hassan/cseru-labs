@@ -12,7 +12,7 @@
 <body>
     <div class="container pt-4">
         <h2 class="text-center pb-2">Online Library</h2>
-        <div class="table-responsive jumbotron">
+        <div class="table-responsive">
             <table class="table table-striped table-condensed">
                 <thead class="thead-light">
                     <tr>
