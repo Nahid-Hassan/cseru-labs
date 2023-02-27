@@ -1,6 +1,6 @@
 <?php
 
-namespace BookStore\Domain;
+namespace BookStore2\Domain;
 
 class ClassA {
     public function __construct() {
