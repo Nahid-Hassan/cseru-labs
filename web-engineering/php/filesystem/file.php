@@ -53,6 +53,38 @@
             <div class="text-center">
                 <a class="text-center btn btn-primary" href="form.php" role="button">Add Book</a>
             </div>
+            <?php
+            // MySQL database credentials
+            $host = 'localhost';
+            $username = 'root';
+            $password = 'nahid1234';
+            $database = 'test';
+
+            // Create a connection
+            $conn = new mysqli($host, $username, $password, $database);
+
+            // Check if the connection was successful
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Perform a query
+            $sql = "SELECT * FROM course";
+            $result = $conn->query($sql);
+
+            // Display the results
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "Name: " . $row["title"] . "<br>";
+                }
+            } else {
+                echo "No results";
+            }
+
+            // Close the connection
+            $conn->close();
+
+            ?>
         </div>
     </div>
 
