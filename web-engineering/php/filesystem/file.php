@@ -53,38 +53,67 @@
             <div class="text-center">
                 <a class="text-center btn btn-primary" href="form.php" role="button">Add Book</a>
             </div>
-            <?php
-            // MySQL database credentials
-            $host = 'localhost';
-            $username = 'root';
-            $password = 'nahid1234';
-            $database = 'test';
 
-            // Create a connection
-            $conn = new mysqli($host, $username, $password, $database);
 
-            // Check if the connection was successful
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            <div class="pt-4"></div>
+            <a href="download.php">Download Pdf</a>
 
-            // Perform a query
-            $sql = "SELECT * FROM course";
-            $result = $conn->query($sql);
+            <table class="table table-striped table-condensed">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Dept. Name</td>
+                        <th scope="col">Credits</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // MySQL database credentials
+                    $host = 'localhost';
+                    $username = 'root';
+                    $password = 'nahid1234';
+                    $database = 'university';
 
-            // Display the results
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "Name: " . $row["title"] . "<br>";
-                }
-            } else {
-                echo "No results";
-            }
+                    // Create a connection
+                    $conn = new mysqli($host, $username, $password, $database);
 
-            // Close the connection
-            $conn->close();
+                    // Check if the connection was successful
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
 
-            ?>
+                    // Perform a query
+                    $sql = "SELECT * FROM course";
+                    $result = $conn->query($sql);
+
+                    // Display the results
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+
+                            echo "<td>";
+                            echo $row["title"];
+                            echo "</td>";
+                            echo "<td>";
+                            echo $row["dept_name"];
+                            echo "</td>";
+                            echo "<td>";
+                            echo $row["credits"];
+                            echo "</td>";
+
+
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "No results";
+                    }
+
+                    // Close the connection
+                    $conn->close();
+
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
