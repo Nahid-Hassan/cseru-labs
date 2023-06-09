@@ -31,4 +31,3 @@ Most of the time I feel, I am 😑🙇 and also my works. But when I see it help
 **Name**: Md. Nahid Hassan<br>
 **Batch**: CSE-25<br>
 **Gmail**: <nahid.cseru@gmail.com> | <nahidmdh18@gmail.com> <br>
-**Google Meet**: <https://meet.google.com/fyj-cgpv-rke><br>
