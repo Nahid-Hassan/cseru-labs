@@ -1,5 +1,7 @@
-# Multimedia
+# Multimedia Systems
 
-## Online Resources
-
--[Run Length Encoding for Image using Python](https://q-viper.github.io/2021/05/24/coding-run-length-encoding-in-python/)
+1. RLE (ED)             # ED: Encode and Decode
+2. LZW
+3. Arithmetic ED
+4. Huffman
+5. DCT

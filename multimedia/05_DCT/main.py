@@ -1,29 +1,54 @@
-import numpy as np
+import math
 
-def dct_2d(image):
-    # Get image dimensions
-    height, width = image.shape
-    
-    # Create an output array of the same size as the input image
-    dct_result = np.zeros_like(image, dtype=np.float64)
-    
-    # Compute the 2D DCT
-    for u in range(height):
-        for v in range(width):
-            sum = 0.0
-            for x in range(height):
-                for y in range(width):
-                    cos_x = np.cos((2 * x + 1) * u * np.pi / (2 * height))
-                    cos_y = np.cos((2 * y + 1) * v * np.pi / (2 * width))
-                    sum += image[x, y] * cos_x * cos_y
-            dct_result[u, v] = sum
-            
-    return dct_result
+pi = 3.142857
+m = 8
+n = 8
 
-# Example usage
-image = np.array([[100, 200, 150],
-                  [50, 75, 125],
-                  [225, 180, 210]])
+# Function to find discrete cosine transform and print it
+def dctTransform(matrix):
+	dct = []
+	for i in range(m):
+		dct.append([None for _ in range(n)])
 
-dct_result = dct_2d(image)
-print(dct_result)
+	for i in range(m):
+		for j in range(n):
+
+			# ci and cj depends on frequency as well as
+			# number of row and columns of specified matrix
+			if (i == 0):
+				ci = 1 / (m ** 0.5)
+			else:
+				ci = (2 / m) ** 0.5
+			if (j == 0):
+				cj = 1 / (n ** 0.5)
+			else:
+				cj = (2 / n) ** 0.5
+
+			# sum will temporarily store the sum of
+			# cosine signals
+			sum = 0
+			for k in range(m):
+				for l in range(n):
+
+					dct1 = matrix[k][l] * math.cos((2 * k + 1) * i * pi / (
+						2 * m)) * math.cos((2 * l + 1) * j * pi / (2 * n))
+					sum = sum + dct1
+
+			dct[i][j] = ci * cj * sum
+
+	for i in range(m):
+		for j in range(n):
+			print(dct[i][j], end="\t")
+		print()
+
+# Driver code
+matrix = [[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255],
+		[255, 255, 255, 255, 255, 255, 255, 255]]
+
+dctTransform(matrix)
