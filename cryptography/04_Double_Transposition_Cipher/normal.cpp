@@ -52,9 +52,9 @@ int main() {
     cin >> width;
     cout << width << endl;    
 
-    string encrypt_message = transposition(message, width);
+    string encrypt_message = transposition(transposition(message, width), width);
     cout << "Encrypted message: " << encrypt_message << endl;
 
-    string decrypt_message = reverseTransposition(encrypt_message, width);
+    string decrypt_message = reverseTransposition(reverseTransposition(encrypt_message, width), width);
     cout << "Decrypted message: " << decrypt_message << endl;
 }
