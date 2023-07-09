@@ -36,7 +36,7 @@ string reverseTransposition(string message, int width) {
     }
     return decrypt_message;
 }
- 
+
 int main() {
     freopen("input.txt", "r", stdin);
     freopen("output_normal.txt", "w", stdout);
@@ -52,6 +52,9 @@ int main() {
     cin >> width;
     cout << width << endl;    
 
+
+    // you can do this many ways.....
+    // for lack of time, i simply call function two times here....
     string encrypt_message = transposition(transposition(message, width), width);
     cout << "Encrypted message: " << encrypt_message << endl;
 
