@@ -8,13 +8,14 @@ def generate_probability_range(symbols):
     total_count = len(symbols)
     symbol_count = Counter(symbols)
     prob_range = {}
-    low = Decimal(0)
+    low = Decimal(0) 
     for symbol, count in symbol_count.items():
         prob = Decimal(count) / Decimal(total_count)
         high = low + prob
         prob_range[symbol] = (low, high)
         #print(symbol,prob_range[symbol])
         low = high
+    print(prob_range)
     return prob_range
 
 def encode(symbols, prob_range):
@@ -25,7 +26,6 @@ def encode(symbols, prob_range):
         range_width = high - low
         high = low + range_width * symbol_high
         low = low + range_width * symbol_low
-        print(symbol, low, high)
     return (low, high)
 
 def decode(encoded_message, prob_range, message_length):
@@ -45,7 +45,7 @@ def decode(encoded_message, prob_range, message_length):
 
 # Read input from file
 with open("input.txt", "r") as f:
-    input_string = f.read()
+    input_string = f.read().strip()
 
 # Generate probability range
 prob_range = generate_probability_range(input_string)

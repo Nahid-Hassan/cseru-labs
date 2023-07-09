@@ -43,6 +43,7 @@ def lzw_decompress(compressed):
             cs = d[code]
         elif code == next_code:
             cs = ps + ps[0]
+            print(cs, '----------------')
         else:
             raise ValueError("Invalid compressed code")
         
