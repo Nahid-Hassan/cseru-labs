@@ -24,8 +24,8 @@ public class DiffieHellman {
         bobKeyAgreement.doPhase(aliceKeyPair.getPublic(), true);
         
         // Generate the shared secret key for Alice and Bob
-        SecretKey aliceSharedSecretKey = aliceKeyAgreement.generateSecret("AES");
-        SecretKey bobSharedSecretKey = bobKeyAgreement.generateSecret("AES");
+        SecretKey aliceSharedSecretKey = aliceKeyAgreement.generateSecret("SunJCE");
+        SecretKey bobSharedSecretKey = bobKeyAgreement.generateSecret("SunJCE");
         
         // Compare the shared secret keys to ensure they match
         boolean keysMatch = aliceSharedSecretKey.equals(bobSharedSecretKey);
