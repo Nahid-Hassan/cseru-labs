@@ -208,7 +208,7 @@ Hope successfully seeded data into your database table. **Hurrah...**
 
 ### 04 - Create CRUD Application 
 
-![images](images/mvc.png)
+![images](images/mvc.jpeg)
 
 1. Create Controller,
 
@@ -742,3 +742,5 @@ Make little change in the `index.blade.php` template,
 
                     //!!!!! {{ route('books.destroy', ['book'=>$book]) }} this as forms action.
 ```
+
+![images](images/upto.png)
