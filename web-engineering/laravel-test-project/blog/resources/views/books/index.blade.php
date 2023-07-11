@@ -37,8 +37,8 @@
                     <td> {{ $book->price  }} </td>
                     <td> {{ $book->available  }} </td>
                     <td>
-                        <a href="{{ route ("books.edit", $book->id) }}" class="btn btn-primary">Edit</a>
-                        <form action="" method="POST">
+                        <a href="{{ route('books.edit', ['book'=>$book])}}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('books.destroy', ['book'=>$book]) }}" method="POST" class="d-inline">
                             @csrf
                             @method("DELETE")
                             <button type="submit" class="btn btn-danger">Delete</button>

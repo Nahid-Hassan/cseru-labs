@@ -557,7 +557,12 @@ and finally, `/app/Http/Controllers/BookstoreController.php` file,
     }
 ```
 
-2. Edit `/resources/views/books/index.blade.php`,
+
+
+
+2. Edit the book,
+
+At first edit `/resources/views/books/index.blade.php`, file.
 
 - Add a new column name `Action`.
 
@@ -570,7 +575,170 @@ and finally, `/app/Http/Controllers/BookstoreController.php` file,
                     <th scope="col">ISBN</th>
                     <th scope="col">Price</th>
                     <th scope="col">Availabe</th>
-                    <th scope="col">Action</th>           # new
+                    <th scope="col">Action</th>           // new
                 </tr>
             </thead>
+
+// and....
+
+                    <td>                                  // new
+                        <a href="{{ route('books.edit', ['book'=>$book])}}" class="btn btn-primary">Edit</a>
+                        <form action="" method="POST" class="d-inline">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+```
+
+Create route,
+
+`/routes/web.php`,
+
+```php
+Route::get("/books/{book}/edit", [BookController::class, "edit"])->name("books.edit");
+Route::patch("/books/{book}", [BookController::class, "update"])->name("books.update");
+```
+
+Create corresponding method for routes,
+
+`/app/Http/Controllers/BookController.php`,
+
+```php
+
+  /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Book $book)
+    {
+        return view('books.edit', array('book' => $book));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Book $book)
+    {
+        $data = $request->validate(
+            [
+                "title" => "required|string",
+                "author" => "required|string",
+                "isbn" => "required",
+                "price" => "required|numeric",
+                "available" => "required|integer",
+            ]
+        );
+
+        $book->update($data);
+
+        return redirect()->route("books.index")->with('Success', 'Book updated successfully');
+    }
+```
+
+Now create `edit.blade.php` file inside `/resources/views/books/` directory,  and `edit.blade.php` file.
+
+```php
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Bookstore</title>
+</head>
+
+<body>
+    <div class="m-4"></div>
+    <div class="container">
+        <h2 class="mt-4">Update Book</h2>
+
+        <form action="{{ route ('books.update', ['book'=>$book]) }}" method="POST" }}>
+            @csrf
+            @method("PATCH")
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Title</label>
+                <input type="text" name="title" value="{{ $book->title }}" class="form-control" aria-describedby="emailHelp">
+                @error('title')
+                    <small class="text-danger"> {{ $message }} </small>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Author</label>
+                <input type="text" name="author" value="{{ $book->author }}" class="form-control" aria-describedby="emailHelp">
+                @error('author')
+                    <small class="text-danger"> {{ $message }} </small>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ISBN</label>
+                <input type="text" name="isbn" value="{{ $book->isbn }}" class="form-control" aria-describedby="emailHelp">
+                @error('isbn')    
+                    <small class="text-danger"> {{ $message }} </small>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Price</label>
+                <input type="number" name="price" value="{{ $book->price }}" class="form-control" aria-describedby="emailHelp">
+                @error('price')    
+                    <small class="text-danger"> {{ $message }} </small>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Available</label>
+                <input type="number" name="available" value="{{ $book->available }}" class="form-control" aria-describedby="emailHelp">
+                @error('available')     
+                    <small class="text-danger"> {{ $message }} </small>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ route("books.index") }}" class="btn btn-secondary">Cancel</a>
+        </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
+```
+
+3. Delete the specified book from the database,
+
+Create routes, `/routes/web.php`
+
+```php
+Route::delete("/books/{book}", [BookController::class, "destroy"])->name("books.destroy"); // new
+```
+
+open `/app/Http/Controllers/BookController.php`,
+
+```php
+   public function destroy(Book $book)
+    {
+        $book->delete();
+
+        return redirect()->route("books.index")->with('Success', 'Book deleted successfully');
+    }
+```
+
+Make little change in the `index.blade.php` template,
+
+```php
+                    <td>
+                        <a href="{{ route('books.edit', ['book'=>$book])}}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('books.destroy', ['book'=>$book]) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+
+                    //!!!!! {{ route('books.destroy', ['book'=>$book]) }} this as forms action.
 ```
