@@ -1,5 +1,6 @@
 # A Huffman Tree Node
 import heapq
+from collections import Counter
 
 
 class node:
@@ -13,7 +14,7 @@ class node:
     def __lt__(self, nxt):
         return self.freq < nxt.freq
 
-
+xx = open("output.txt", "w")
 def printNodes(node, val=""):
     newVal = val + str(node.huff)
     if node.left:
@@ -23,14 +24,23 @@ def printNodes(node, val=""):
 
     if not node.left and not node.right:
         print(f"{node.symbol} -> {newVal}")
+        xx.write(f"{node.symbol} -> {newVal}" + "\n")
 
-
-chars = ["a", "b", "c", "d", "e", "f"]
-freq = [5, 9, 12, 13, 16, 45]
+with open("input.txt", "r") as f:
+    lines = f.readlines();
 
 nodes = []
-for x in range(len(chars)):
-    heapq.heappush(nodes, node(freq[x], chars[x]))
+for key, val in Counter(lines[0]).items():
+    heapq.heappush(nodes, node(val, key))
+
+
+
+# chars = ["a", "b", "c", "d", "e", "f"]
+# freq = [5, 9, 12, 13, 16, 45]
+
+# nodes = []
+# for x in range(len(chars)):
+#     heapq.heappush(nodes, node(freq[x], chars[x]))
 
 # nodes[o3, o4, o5, o6]
 
