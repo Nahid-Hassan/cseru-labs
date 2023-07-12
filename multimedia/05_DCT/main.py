@@ -1,4 +1,5 @@
 import math
+# from pprint import pprint as print
 
 pi = 3.142857
 m = 8
@@ -9,6 +10,8 @@ def dctTransform(matrix):
 	dct = []
 	for i in range(m):
 		dct.append([None for _ in range(n)])
+	
+	print(dct)
 
 	for i in range(m):
 		for j in range(n):

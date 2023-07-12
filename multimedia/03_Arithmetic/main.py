@@ -21,6 +21,7 @@ def generate_probability_range(symbols):
 def encode(symbols, prob_range):
     low = Decimal(0)
     high = Decimal(1)
+    # low, high = 0.0, 1.0
     for symbol in symbols:
         symbol_low, symbol_high = prob_range[symbol]
         range_width = high - low
@@ -31,7 +32,7 @@ def encode(symbols, prob_range):
 def decode(encoded_message, prob_range, message_length):
     low, high = encoded_message
     message = ""
-    print(prob_range.items())
+    # print(prob_range.items())
     for i in range(message_length):
         for symbol, symbol_range in prob_range.items():
             symbol_low, symbol_high = symbol_range

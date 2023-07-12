@@ -15,6 +15,9 @@ class node:
         return self.freq < nxt.freq
 
 xx = open("output.txt", "w")
+
+encode_dict, decode_dict = {}, {}
+
 def printNodes(node, val=""):
     newVal = val + str(node.huff)
     if node.left:
@@ -23,8 +26,22 @@ def printNodes(node, val=""):
         printNodes(node.right, newVal)
 
     if not node.left and not node.right:
-        print(f"{node.symbol} -> {newVal}")
         xx.write(f"{node.symbol} -> {newVal}" + "\n")
+        encode_dict[node.symbol] = newVal
+        decode_dict[newVal] = node.symbol
+
+
+def encode(msg):
+    for key, val in encode_dict.items():
+        msg = msg.replace(key, val)
+    return msg
+
+def decode(msg):
+    for key, val in decode_dict.items():
+        msg = msg.replace(val, key)
+        print(key, val, msg)
+    return msg
+
 
 with open("input.txt", "r") as f:
     lines = f.readlines();
@@ -58,3 +75,7 @@ while len(nodes) > 1:
     heapq.heappush(nodes, newNode)
 
 printNodes(nodes[0])
+out = encode(lines[0])
+print(out)
+xx.write(out + "\n")
+print(decode(out))
