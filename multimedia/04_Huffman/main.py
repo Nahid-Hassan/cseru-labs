@@ -51,7 +51,7 @@ with open("input.txt", "r") as f:
 
 nodes = []
 for key, val in Counter(lines[0]).items():
-    heapq.heappush(nodes, node(val, key))
+    heapq.heappush(nodes, node(val / len(lines[0]), key))
 
 while len(nodes) > 1:
     left = heapq.heappop(nodes)
@@ -68,5 +68,8 @@ while len(nodes) > 1:
 printNodes(nodes[0])
 
 out = encode(lines[0])
-print(f"After compressed string -> {lines[0]} - {out}.")
-print(f"After decompressing string -> {out} - {decode(out)}.")
+open("encode.txt", "w").write(out)
+# print(f"After compressed string -> {lines[0]} - {out}.")
+inp = open("encode.txt", "r").readlines()[0]
+open("decode.txt", "w").write( decode(inp) )
+# print(f"After decompressing string -> {out} - {decode(out)}.")
