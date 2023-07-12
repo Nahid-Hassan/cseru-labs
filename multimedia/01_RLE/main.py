@@ -34,17 +34,6 @@ def rle_decode(data):
     return decoded
 
 
-# --------------------------------------
-def rle_encode_short(data):
-    encoded = ''.join(str(len(list(group))) + key for key, group in itertools.groupby(data))
-    return encoded
-
-
-def rle_decode_short(data):
-    decoded = ''.join(int(data[i]) * data[i + 1] for i in range(0, len(data), 2))
-    return decoded
-# --------------------------------------
-
 encoded_data = []
 with open("plain.txt", "r") as file:
     for line in file.readlines():
